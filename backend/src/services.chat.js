@@ -1,5 +1,4 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-const { get } = require('mongoose');
 const APIKEY = process.env.APIKEY;
 const genAI = new GoogleGenerativeAI(APIKEY);
 const model = genAI.getGenerativeModel({
@@ -7,7 +6,7 @@ const model = genAI.getGenerativeModel({
   generationConfig: { responseMimeType: 'application/json' },
 });
 
-const getChat = async (prompt) => {
+const getChat = async prompt => {
   try {
     const context =
       'TE LLAMAS MIA Y ERES UN ASISTENTE PARA MIS CLIENTES Y TE ENCARGAS DE RESPONDER A SUS PREGUNTAS en español. TU RESPUESTA DEBE SER SOOLO TEXTO: {"response": "TU RESPUESTA AQUI..."} ';

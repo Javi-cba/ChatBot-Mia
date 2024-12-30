@@ -1,0 +1,25 @@
+.chatbotContainer {
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
+}
+
+.chatContainer {
+  flex: 1; /* Ocupa todo el espacio restante */
+  width: 100%;
+  text-align: center;
+}
+
+/* Search Container (fijo al final) */
+.searchContainer {
+  display: flex;
+  height: 4rem;
+  margin: 1rem auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputPrompt {
+  width: 40rem;
+}
