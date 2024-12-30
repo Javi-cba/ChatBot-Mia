@@ -1,4 +1,4 @@
-import '../styles/Chat.css';
+import '../styles/chat.css';
 import CmpSearch from '../components/CmpSearch';
 import ChatList from '../components/ChatList';
 
