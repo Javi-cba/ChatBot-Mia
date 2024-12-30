@@ -1,6 +1,6 @@
-import '../styles/chat.css';
 import CmpSearch from '../components/CmpSearch';
 import ChatList from '../components/ChatList';
+import '../styles/chat.css';
 
 function Home() {
   return (
