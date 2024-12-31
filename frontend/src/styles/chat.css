@@ -14,12 +14,35 @@
 /* Search Container (fijo al final) */
 .searchContainer {
   display: flex;
-  height: 4rem;
-  margin: 1rem auto;
+  height: 5rem;
+  margin: 1rem;
+
   justify-content: center;
   align-items: center;
 }
 
 .inputPrompt {
   width: 40rem;
+}
+
+.chathist {
+  height: 65vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.chatMsj {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: #868686;
+  color: #ffffff;
+  font-weight: bold;
+  height: auto;
+  width: 100%;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+.chatMsjCnt {
+  margin: 1rem;
 }

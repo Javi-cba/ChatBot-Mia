@@ -9,6 +9,7 @@ const CmpSearch = () => {
   const { dispatch } = usechat();
 
   const handleSend = async value => {
+    if (!value) return;
     let messageUSER = createMessage('USER', value);
     dispatch({ type: 'ADD_CHAT', payload: messageUSER });
 
