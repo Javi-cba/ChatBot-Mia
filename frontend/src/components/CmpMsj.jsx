@@ -4,7 +4,7 @@ import React from 'react';
 
 import '../styles/chat.css';
 
-const ChatMsj = ({ msj, owner }) => {
+const CmpMsj = ({ msj, owner }) => {
   return (
     <Row
       justify={owner === 'USER' ? 'end' : 'start'}
@@ -35,4 +35,4 @@ const ChatMsj = ({ msj, owner }) => {
   );
 };
 
-export default ChatMsj;
+export default CmpMsj;
