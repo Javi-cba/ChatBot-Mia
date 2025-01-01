@@ -1,13 +1,16 @@
-# ChatBot-M-a
 ## Funcionalidades
 
 La aplicación web ofrece las siguientes funcionalidades:
 
+- **Interacción con IA**: El usuario puede interactuar con la asistente basada en Inteligencia Artificial.
+- **Reconocimiento de imágenes**: El chatbot puede interpretar imágenes enviadas por el usuario.
 - **Respuestas rápidas**: El chatbot responde preguntas frecuentes de manera automática.
 
-- ## Futuras Funcionalidades
-- **Reconocimiento de imágenes**: El chatbot podrá interpretar imágenes enviadas por el usuario.
+## Futuras Funcionalidades
 - **Dictado de voz**: Permitirá a los usuarios interactuar mediante comandos de voz.
+- **Recordar conversaciones recientes**: Permitirá tener un contexto sobre lo que se acaba de hablar.
+- **Historial de conversaciones**: Permitirá tener un historial en BD sobre las conversaciones.
+- **Mejoras en interfaz**: Permitirá ver el contenido de las respuestas en un mejor formato con Markdown.
 
 ## Instalación
 
