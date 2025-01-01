@@ -2,7 +2,7 @@ import { Row, Col, Space, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
 
-import '../styles/chat.css';
+import '../../styles/chat.css';
 
 const CmpMsj = ({ msj, owner }) => {
   return (

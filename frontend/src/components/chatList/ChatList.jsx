@@ -1,5 +1,5 @@
 import { Flex } from 'antd';
-import { usechat } from '../context/chatContext';
+import { usechat } from '../../context/chatContext';
 import CmpMsj from './CmpMsj';
 const ChatList = () => {
   const { chat } = usechat();
@@ -16,7 +16,7 @@ const ChatList = () => {
     >
       {chat.msjs.length > 0 ? (
         <>
-          {chat.msjs.map(msj => (
+          {chat.msjs.map((msj) => (
             <CmpMsj key={msj.id} owner={msj.owner} msj={msj.content} />
           ))}
         </>

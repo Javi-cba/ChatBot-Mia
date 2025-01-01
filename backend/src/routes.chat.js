@@ -18,11 +18,9 @@ router.post('/prompt-text', async (req, res) => {
 
 router.post('/prompt-img', async (req, res) => {
   try {
-    const prompt = 'GENERA UN ANUNCIO PARA MI PRODUCTO, en español. ';
-    const img =
-      'https://resizer.glanacion.com/resizer/v2/las-lineas-del-nuevo-mercedes-benz-c300-amg-line-AI6T3YVF4FDCDHZUWNJS7GX6PY.jpg?auth=61170afca992fde3aef8db44cc448bc31d03703b00767ab5381f3b62f6aa19b7&width=1200&quality=70&smart=false&height=800';
+    const { prompt, imgURL } = req.query;
 
-    const dataIA = await getChatImg(prompt, img);
+    const dataIA = await getChatImg(prompt, imgURL);
 
     res.status(200).json(dataIA);
   } catch (error) {

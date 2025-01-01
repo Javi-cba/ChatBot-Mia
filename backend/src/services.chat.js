@@ -6,7 +6,7 @@ const model = genAI.getGenerativeModel({
   generationConfig: { responseMimeType: 'application/json' },
 });
 
-const getChat = async prompt => {
+const getChat = async (prompt) => {
   try {
     const context =
       'TE LLAMAS MIA Y ERES UN ASISTENTE PARA MIS CLIENTES Y TE ENCARGAS DE RESPONDER A SUS PREGUNTAS en español. TU RESPUESTA DEBE SER SOOLO TEXTO: {"response": "TU RESPUESTA AQUI..."} ';
@@ -26,7 +26,9 @@ const getChat = async prompt => {
 
 const getChatImg = async (prompt, img) => {
   try {
-    const result = await model.generateContent([prompt, img]);
+    const context =
+      'TE LLAMAS MIA Y ERES UN ASISTENTE PARA MIS CLIENTES Y TE ENCARGAS DE RESPONDER A SUS PREGUNTAS en español. TU RESPUESTA DEBE SER SOOLO TEXTO: {"response": "TU RESPUESTA AQUI..."}. PROMPT DEL USER: ';
+    const result = await model.generateContent([context + prompt, img]);
     console.log(result.response.text());
     const dataIA = JSON.parse(result.response.text());
 
