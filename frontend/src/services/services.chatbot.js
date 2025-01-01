@@ -1,6 +1,11 @@
 import axios from 'axios';
 const URL = import.meta.env.VITE_APP_URL;
 
+export const getBackend = async () => {
+  axios.get(`${URL}/`).then((response) => {
+    console.log(response);
+  });
+};
 export const getChat = async (prompt, imgURL) => {
   if (!imgURL) {
     try {
