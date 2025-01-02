@@ -1,0 +1,17 @@
+.custom-upload .ant-upload-list {
+  margin-bottom: 16px; /* Espacio entre la lista y el botón */
+}
+
+.custom-upload .ant-upload-list-item {
+  display: flex;
+  align-items: center;
+}
+
+.custom-upload .ant-upload {
+  display: flex;
+  flex-direction: column-reverse; /* Invierte la dirección: el botón abajo, la lista arriba */
+}
+
+.custom-upload .ant-btn {
+  margin-top: 16px; /* Espaciado adicional para el botón */
+}

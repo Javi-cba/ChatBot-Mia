@@ -3,7 +3,7 @@ import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
-import '../styles/chat.css';
+import '../../styles/chat.css';
 
 const CmpMsj = ({ msj, owner }) => {
   return (
