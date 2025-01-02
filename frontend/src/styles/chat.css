@@ -6,7 +6,7 @@
 }
 
 .chatContainer {
-  flex: 1; /* Ocupa todo el espacio restante */
+  flex: 1;
   width: 100%;
   text-align: center;
 }

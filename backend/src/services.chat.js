@@ -6,10 +6,11 @@ const model = genAI.getGenerativeModel({
   generationConfig: { responseMimeType: 'application/json' },
 });
 
+const context =
+  'Tu nombre es MIA y tu función principal es responder a las preguntas de los usuarios de forma clara y precisa en español. Toda tu respuesta debe estar contenida dentro de un objeto JSON con la clave "response", donde el valor es el contenido de tu respuesta utilizando los elementos más comunes de Markdown (encabezados, listas no ordenadas, listas ordenadas, negrita, cursiva, citas, código en línea, bloques de código, enlaces, imágenes, tablas, saltos de línea y listas de tareas, según sea necesario). PROMT DEL USUARIO:';
+
 const getChat = async prompt => {
   try {
-    const context =
-      'TE LLAMAS MIA Y ERES UN ASISTENTE PARA MIS CLIENTES Y TE ENCARGAS DE RESPONDER A SUS PREGUNTAS en español. TU RESPUESTA DEBE SER SOOLO TEXTO: {"response": "TU RESPUESTA AQUI..."} ';
     const result = await model.generateContent(context + prompt);
     console.log(result.response.text());
     const dataIA = JSON.parse(result.response.text());
@@ -26,6 +27,7 @@ const getChat = async prompt => {
 
 const getChatImg = async (prompt, img) => {
   try {
+    // falta context
     const result = await model.generateContent([prompt, img]);
     console.log(result.response.text());
     const dataIA = JSON.parse(result.response.text());

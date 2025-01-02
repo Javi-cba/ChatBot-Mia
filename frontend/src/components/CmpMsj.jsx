@@ -1,6 +1,7 @@
 import { Row, Col, Space, Avatar } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
 
 import '../styles/chat.css';
 
@@ -26,7 +27,7 @@ const CmpMsj = ({ msj, owner }) => {
           <Col flex="auto" className="chatMsjCnt">
             <Space direction="vertical" align="start" className="chatMsj">
               <p>{owner}</p>
-              <p>{msj}</p>
+              <ReactMarkdown>{msj}</ReactMarkdown>
             </Space>
           </Col>
         </Row>
