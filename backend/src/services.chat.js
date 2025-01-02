@@ -28,7 +28,7 @@ const getChat = async prompt => {
 const getChatImg = async (prompt, img) => {
   try {
     // falta context
-    const result = await model.generateContent([prompt, img]);
+    const result = await model.generateContent([context + prompt, img]);
     console.log(result.response.text());
     const dataIA = JSON.parse(result.response.text());
 
