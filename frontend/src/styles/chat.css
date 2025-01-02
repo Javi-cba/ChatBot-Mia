@@ -8,6 +8,7 @@
 .chatContainer {
   flex: 1;
   width: 100%;
+  padding: 0.5rem;
   text-align: center;
 }
 
@@ -41,8 +42,4 @@
   width: 100%;
   max-width: 100%;
   word-wrap: break-word;
-}
-
-.chatMsjCnt {
-  margin: 1rem;
 }

@@ -16,8 +16,13 @@ const ChatList = () => {
     >
       {chat.msjs.length > 0 ? (
         <>
-          {chat.msjs.map((msj) => (
-            <CmpMsj key={msj.id} owner={msj.owner} msj={msj.content} />
+          {chat.msjs.map(msj => (
+            <CmpMsj
+              key={msj.id}
+              id={msj.id}
+              owner={msj.owner}
+              msj={msj.content}
+            />
           ))}
         </>
       ) : (

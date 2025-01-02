@@ -15,7 +15,7 @@ const Navbar = () => {
           className="navbar-avatar"
         />
         <Title level={3} className="navbar-title">
-          MIA - Chatbot
+          MIA Chatbot
         </Title>
       </Space>
     </Header>

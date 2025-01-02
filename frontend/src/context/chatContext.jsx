@@ -14,7 +14,15 @@ const ChatReducer = (chat, action) => {
 
     case 'CLEAR_CHAT':
       return { msjs: [] }; // Reset chat data
-
+    case 'UPDATE_CHAT':
+      return {
+        ...chat,
+        msjs: chat.msjs.map(message =>
+          message.id === action.payload.id
+            ? { ...message, ...action.payload }
+            : message
+        ),
+      };
     default:
       return chat;
   }
