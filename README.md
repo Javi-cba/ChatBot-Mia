@@ -6,11 +6,12 @@ La aplicación web ofrece las siguientes funcionalidades:
 - **Reconocimiento de imágenes**: El chatbot puede interpretar imágenes enviadas por el usuario.
 - **Respuestas rápidas**: El chatbot responde preguntas frecuentes de manera automática.
 - **Respuestas en Markdown**: El chatbot responde en formato con Markdown, generando tablas, listas, enlaces, etc.
+- **Recuerda conversaciones recientes**: Permite tener un contexto sobre lo que se acaba de hablar hace un momento.
+
 
 ## Futuras Funcionalidades
 
 - **Dictado de voz**: Permitirá a los usuarios interactuar mediante comandos de voz.
-- **Recordar conversaciones recientes**: Permitirá tener un contexto sobre lo que se acaba de hablar.
 - **Historial de conversaciones**: Permitirá tener un historial en BD sobre las conversaciones.
 
 ## Instalación
@@ -47,4 +48,4 @@ Sigue estos pasos para ejecutar el proyecto en tu máquina local:
    npm rundev
    ```
 
-![image](https://i.ibb.co/jV9KP1N/chatbot.png)
+![image](https://github.com/user-attachments/assets/5c9ae18c-08e1-4a60-a0fb-bca81f3e0a5e)
