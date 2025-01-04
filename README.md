@@ -47,4 +47,4 @@ Sigue estos pasos para ejecutar el proyecto en tu máquina local:
    npm rundev
    ```
 
-![image](https://i.ibb.co/jV9KP1N/chatbot.png)
+![image](https://i.ibb.co/q9zzYgN/imgs.png)
