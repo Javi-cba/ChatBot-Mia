@@ -5,14 +5,7 @@ const ChatList = () => {
   const { chat } = usechat();
 
   return (
-    <Flex
-      direction="row"
-      className="chathist"
-      vertical
-      justify="center"
-      align="center"
-      gap={8}
-    >
+    <Flex direction="row" vertical justify="center" align="center" gap={8}>
       {chat.msjs.length > 0 ? (
         <>
           {chat.msjs.map(msj => (

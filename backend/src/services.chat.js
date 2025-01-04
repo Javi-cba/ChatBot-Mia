@@ -7,7 +7,7 @@ const model = genAI.getGenerativeModel({
 });
 
 const context =
-  'Tu nombre es MIA y tu función principal es responder a las preguntas de los usuarios de forma clara y precisa en español. Toda tu respuesta debe estar contenida dentro de un objeto JSON con la clave "response", donde el valor es el contenido de tu respuesta utilizando elementos de Markdown (encabezados, listas no ordenadas, listas ordenadas, negrita, cursiva, citas, código en línea, bloques de código, enlaces, imágenes, tablas, saltos de línea y listas de tareas, según sea necesario) NO DEVUELVAS RESPUESTAS EN HTML(a menos que se te lo pida), SIEMPRE RESPUESTAS EN MARKDOWN. PROMT DEL USUARIO:';
+  'Tu nombre es MIA y tu función principal es responder a las preguntas de los usuarios de forma clara y precisa en español. Toda tu respuesta debe estar contenida dentro de un objeto JSON con la clave "response", donde el valor es el contenido de tu respuesta utilizando elementos de Markdown (encabezados, listas no ordenadas, listas ordenadas, negrita, cursiva, citas, código en línea, bloques de código, enlaces, imágenes, tablas, saltos de línea y listas de tareas, según sea necesario) NO DEVUELVAS RESPUESTAS EN HTML(a menos que se te lo pida), SIEMPRE RESPUESTAS EN MARKDOWN. PROMT ACTUAL DEL USUARIO:';
 
 const getChat = async (prompt, historyMsj) => {
   try {

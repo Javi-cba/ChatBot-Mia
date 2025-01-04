@@ -13,7 +13,6 @@ function Home() {
       <section className="chatContainer">
         <ChatList />
       </section>
-
       <section className="searchContainer">
         <CmpSearch />
       </section>

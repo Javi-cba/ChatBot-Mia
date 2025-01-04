@@ -13,8 +13,8 @@ const CmpMsj = ({ msj, owner, id }) => {
       justify={owner === 'USER' ? 'end' : 'start'}
       style={{ margin: 0, width: '100%' }}
     >
-      <Col xs={20} sm={18} md={16} lg={14} xl={12} className="chatMsjCnt">
-        <Row align="top" className="chatMsjCnt" gutter={[8, 0]}>
+      <Col xs={20} sm={18} md={16} lg={14} xl={12}>
+        <Row align="top" gutter={[8, 0]}>
           <Col>
             <Space direction="vertical" gap={8} align="flex-end">
               <Avatar
@@ -39,7 +39,7 @@ const CmpMsj = ({ msj, owner, id }) => {
           {owner !== 'USER' ? (
             <>
               {idLoadMsjIA !== id && (
-                <Col flex="auto" className="chatMsjCnt">
+                <Col flex="auto">
                   <Space direction="vertical" align="start" className="chatMsj">
                     <p style={{ color: '#7192a1' }}>{owner}</p>
                     <Markdown msj={msj} />
@@ -50,7 +50,7 @@ const CmpMsj = ({ msj, owner, id }) => {
           ) : (
             <>
               {' '}
-              <Col flex="auto" className="chatMsjCnt">
+              <Col flex="auto">
                 <Space direction="vertical" align="start" className={'chatMsj'}>
                   <p style={{ color: '#7192a1' }}>{owner}</p>
                   <Markdown msj={msj} />
