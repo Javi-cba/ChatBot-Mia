@@ -6,9 +6,10 @@ const { getChat, getChatImg } = require('./services.chat');
 router.post('/prompt-text', async (req, res) => {
   try {
     const prompt = req.query.prompt;
+    const historyMsj = req.body;
     if (!prompt) return res.status(400).json({ error: 'Prompt is required' });
 
-    const dataIA = await getChat(prompt);
+    const dataIA = await getChat(prompt, historyMsj);
 
     res.status(200).json(dataIA);
   } catch (error) {
@@ -19,8 +20,9 @@ router.post('/prompt-text', async (req, res) => {
 router.post('/prompt-img', async (req, res) => {
   try {
     const { prompt, imgURL } = req.query;
+    const historyMsj = req.body;
 
-    const dataIA = await getChatImg(prompt, imgURL);
+    const dataIA = await getChatImg(prompt, imgURL, historyMsj);
 
     res.status(200).json(dataIA);
   } catch (error) {
