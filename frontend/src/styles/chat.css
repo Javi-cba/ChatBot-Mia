@@ -87,7 +87,6 @@
   overflow: hidden;
   white-space: nowrap;
   width: 0; /* Inicia el ancho en 0 */
-  font-size: 1.8rem;
   animation: typing 2s steps(30) 1s forwards,
     blink-caret 0.75s step-end infinite; /* Animaciones */
   color: #8ba5b1 !important;
