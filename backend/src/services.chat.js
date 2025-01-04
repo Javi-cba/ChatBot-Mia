@@ -48,14 +48,14 @@ const getChatImg = async (prompt, img, historyMsj) => {
 
 const historyString = historyMsj => {
   let history = '';
-  if (Array.isArray(historyMsj) && historyMsj.length > 0) {
+  if (historyMsj) {
     history =
-      'Este es el historial de mensajes, por si lo necesitas (no aclares que tomaste la información del historial):' +
+      'Este es el historial de mensajes, por si lo necesitas (nunca aclares que tomaste la información del historial): ' +
       JSON.stringify(historyMsj, null, 2);
+    console.log(history);
   } else {
-    console.log('No hay historial de mensajes', history);
+    console.log('No hay historial');
   }
-  console.log(historyMsj);
   return history;
 };
 module.exports = { getChat, getChatImg };
