@@ -1,11 +1,6 @@
 import axios from 'axios';
 const URL = import.meta.env.VITE_APP_URL;
 
-export const getBackend = async () => {
-  axios.get(`${URL}/`).then(response => {
-    console.log(response);
-  });
-};
 export const getChat = async (prompt, imgURL, historyMsj) => {
   console.log(historyMsj);
   if (!imgURL) {
@@ -39,4 +34,23 @@ export const getChat = async (prompt, imgURL, historyMsj) => {
       return error;
     }
   }
+};
+
+// Esto es pq el backend esta desplegado en un host gratuitio y cuando se hace la primer petición suele estar demorado
+export const initBackend = async () => {
+  await axios.get(`${URL}/`).then(response => {
+    console.log(response);
+  });
+
+  await axios
+    .post(
+      `${URL}/chat/prompt-text`,
+      { historyMsj: {} },
+      {
+        params: { prompt: 'Hola Mía' },
+      }
+    )
+    .then(response2 => {
+      console.log(response2);
+    });
 };
