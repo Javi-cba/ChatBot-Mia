@@ -1,20 +1,24 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
+const fetch = require('node-fetch'); // Importing fetch to handle image download
+const fs = require('fs'); // To handle saving the file
 const APIKEY = process.env.APIKEY;
 const genAI = new GoogleGenerativeAI(APIKEY);
+const context =
+  'Tu nombre es MIA y tu función principal es responder a las preguntas de los usuarios de forma clara y precisa en español. Toda tu respuesta debe estar contenida dentro de un objeto JSON con la clave "response", donde el valor es el contenido de tu respuesta utilizando elementos de Markdown (encabezados, listas no ordenadas, listas ordenadas, negrita, cursiva, citas, código en línea, bloques de código, enlaces, imágenes, tablas, saltos de línea y listas de tareas, según sea necesario) NO DEVUELVAS RESPUESTAS EN HTML(a menos que se te lo pida), SIEMPRE RESPUESTAS EN MARKDOWN. Para tener un contexto de la conversación o para recordar datos importantes siempre se te pasará el historyMessages (sin importar si hay mensajes en el historial) y nunca aclares que tomaste la información del historial';
 const model = genAI.getGenerativeModel({
   model: 'gemini-1.5-flash',
   generationConfig: { responseMimeType: 'application/json' },
+  systemInstruction: context,
 });
 
-const context =
-  'Tu nombre es MIA y tu función principal es responder a las preguntas de los usuarios de forma clara y precisa en español. Toda tu respuesta debe estar contenida dentro de un objeto JSON con la clave "response", donde el valor es el contenido de tu respuesta utilizando elementos de Markdown (encabezados, listas no ordenadas, listas ordenadas, negrita, cursiva, citas, código en línea, bloques de código, enlaces, imágenes, tablas, saltos de línea y listas de tareas, según sea necesario) NO DEVUELVAS RESPUESTAS EN HTML(a menos que se te lo pida), SIEMPRE RESPUESTAS EN MARKDOWN. PROMT ACTUAL DEL USUARIO:';
-
-const getChat = async (prompt, historyMsj) => {
+const getChat = async (prompt, historyMessages) => {
   try {
-    const history = historyString(historyMsj);
-    const result = await model.generateContent(context + prompt + history);
+    const result = await model.generateContent(
+      `${prompt}\n${JSON.stringify(historyMessages, null, 2)}`
+    );
 
     const dataIA = JSON.parse(result.response.text());
+    console.log(dataIA);
 
     const metadata = result.response.usageMetadata;
     console.log(metadata); // token usados
@@ -26,18 +30,27 @@ const getChat = async (prompt, historyMsj) => {
   }
 };
 
-const getChatImg = async (prompt, img, historyMsj) => {
+const getChatImg = async (prompt, imgURL, historyMessages) => {
   try {
-    const history = historyString(historyMsj);
+    const response = await fetch(imgURL);
+    if (!response.ok) {
+      throw new Error('Error al descargar la imágen');
+    }
+
+    const buffer = await response.buffer();
+    const base64Image = buffer.toString('base64');
+
+    const imageData = `data:image/jpeg;base64,${base64Image}`;
+
     const result = await model.generateContent([
-      context + prompt + history,
-      img,
+      `${prompt}\n${JSON.stringify(historyMessages, null, 2)}`,
+      imageData,
     ]);
     console.log(result.response.text());
-    const dataIA = JSON.parse(result.response.text());
 
+    const dataIA = JSON.parse(result.response.text());
     const metadata = result.response.usageMetadata;
-    console.log(metadata); // token usados
+    console.log(metadata); // tokens used
 
     return dataIA;
   } catch (error) {
@@ -46,16 +59,4 @@ const getChatImg = async (prompt, img, historyMsj) => {
   }
 };
 
-const historyString = historyMsj => {
-  let history = '';
-  if (historyMsj) {
-    history =
-      'Este es el historial de mensajes, por si lo necesitas (nunca aclares que tomaste la información del historial): ' +
-      JSON.stringify(historyMsj, null, 2);
-    console.log(history);
-  } else {
-    console.log('No hay historial');
-  }
-  return history;
-};
 module.exports = { getChat, getChatImg };

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { message } from 'antd';
 const URL = import.meta.env.VITE_APP_URL;
 
 export const getChat = async (prompt, imgURL, historyMsj) => {
@@ -16,7 +17,7 @@ export const getChat = async (prompt, imgURL, historyMsj) => {
       return response.data.response;
     } catch (error) {
       console.log(error);
-      return error;
+      message.error('Error al procesar la solicitud: ' + error.message);
     }
   } else {
     try {
@@ -31,14 +32,14 @@ export const getChat = async (prompt, imgURL, historyMsj) => {
       return response.data.response;
     } catch (error) {
       console.log(error);
-      return error;
+      message.error('Error al procesar la solicitud: ' + error.message);
     }
   }
 };
 
 // Esto es pq el backend esta desplegado en un host gratuitio y cuando se hace la primer petición suele estar demorado
 export const initBackend = async () => {
-  await axios.get(`${URL}/`).then(response => {
+  await axios.get(`${URL}/`).then((response) => {
     console.log(response);
   });
 
@@ -50,7 +51,7 @@ export const initBackend = async () => {
         params: { prompt: 'Hola Mía' },
       }
     )
-    .then(response2 => {
+    .then((response2) => {
       console.log(response2);
     });
 };

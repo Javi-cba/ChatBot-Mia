@@ -1,13 +1,17 @@
 import React from 'react';
-import { Layout, Avatar, Typography, Space } from 'antd';
+import { Avatar, Typography, Space, Flex, Button } from 'antd';
+import { UploadOutlined } from '@ant-design/icons';
+import { useImg } from '../context/imgFileContext';
 import '../styles/Navbar.css';
+import { usechat } from '../context/chatContext';
 
-const { Header } = Layout;
 const { Title } = Typography;
 
 const Navbar = () => {
+  const { handleRemoveImage } = useImg();
+  const { dispatch } = usechat();
   return (
-    <Header className="navbar">
+    <Flex className="navbar" justify="space-between">
       <Space size="middle" align="center" justify="center">
         <Avatar
           src="https://img.icons8.com/?size=100&id=79UfeEN6JkZ8&format=png&color=000000"
@@ -18,7 +22,15 @@ const Navbar = () => {
           MIA Chatbot
         </Title>
       </Space>
-    </Header>
+      <Button
+        icon={<UploadOutlined style={{ color: 'white' }} />}
+        style={{ backgroundColor: '#263339', borderColor: '#1D425D' }}
+        onClick={() => {
+          handleRemoveImage();
+          dispatch({ type: 'CLEAR_CHAT' });
+        }}
+      ></Button>{' '}
+    </Flex>
   );
 };
 
