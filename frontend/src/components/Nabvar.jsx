@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, Typography, Space, Flex, Button } from 'antd';
-import { UploadOutlined } from '@ant-design/icons';
+import { DeleteOutlined } from '@ant-design/icons';
 import { useImg } from '../context/imgFileContext';
 import '../styles/Navbar.css';
 import { usechat } from '../context/chatContext';
@@ -23,7 +23,7 @@ const Navbar = () => {
         </Title>
       </Space>
       <Button
-        icon={<UploadOutlined style={{ color: 'white' }} />}
+        icon={<DeleteOutlined style={{ color: 'white' }} />}
         style={{ backgroundColor: '#263339', borderColor: '#1D425D' }}
         onClick={() => {
           handleRemoveImage();
