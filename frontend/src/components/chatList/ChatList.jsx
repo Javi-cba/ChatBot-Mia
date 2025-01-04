@@ -26,7 +26,7 @@ const ChatList = () => {
           ))}
         </>
       ) : (
-        <h1>¡Hola! ¿Cómo puedo ayudarte?</h1>
+        <h1 className="msjInit">¡Hola! ¿Cómo puedo ayudarte?</h1>
       )}
     </Flex>
   );

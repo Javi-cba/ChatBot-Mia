@@ -43,7 +43,8 @@ const CmpUpload = () => {
         id="fileInput"
       />
       <Button
-        icon={<UploadOutlined />}
+        icon={<UploadOutlined style={{ color: 'white' }} />}
+        style={{ backgroundColor: '#263339', borderColor: '#1D425D' }}
         onClick={() => document.getElementById('fileInput').click()}
       ></Button>
     </Flex>

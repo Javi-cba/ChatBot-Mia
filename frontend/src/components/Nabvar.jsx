@@ -8,7 +8,7 @@ const { Title } = Typography;
 const Navbar = () => {
   return (
     <Header className="navbar">
-      <Space size="middle" align="center">
+      <Space size="middle" align="center" justify="center">
         <Avatar
           src="https://img.icons8.com/?size=100&id=79UfeEN6JkZ8&format=png&color=000000"
           size={40}

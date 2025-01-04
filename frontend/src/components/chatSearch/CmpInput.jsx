@@ -46,7 +46,7 @@ const CmpInput = () => {
 
   return (
     <Search
-      placeholder="Escribe un prompt a Mía..."
+      placeholder="Escribe tu mensaje..."
       allowClear
       enterButton="Enviar"
       size="large"

@@ -51,7 +51,7 @@ const CmpMsj = ({ msj, owner, id }) => {
             <>
               {' '}
               <Col flex="auto" className="chatMsjCnt">
-                <Space direction="vertical" align="start" className="chatMsj">
+                <Space direction="vertical" align="start" className={'chatMsj'}>
                   <p>{owner}</p>
                   <Markdown msj={msj} />
                 </Space>
