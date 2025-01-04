@@ -33,7 +33,7 @@ app.get('/', async (request, response) => {
   return response.send('Backend chatbot');
 });
 
-// Routers
+// Router Chat
 app.use('/chat/', router);
 
 app.listen(PORT, () => {
