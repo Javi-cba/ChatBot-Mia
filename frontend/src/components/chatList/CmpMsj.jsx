@@ -41,7 +41,7 @@ const CmpMsj = ({ msj, owner, id }) => {
               {idLoadMsjIA !== id && (
                 <Col flex="auto" className="chatMsjCnt">
                   <Space direction="vertical" align="start" className="chatMsj">
-                    <p>{owner}</p>
+                    <p style={{ color: '#7192a1' }}>{owner}</p>
                     <Markdown msj={msj} />
                   </Space>
                 </Col>
@@ -52,7 +52,7 @@ const CmpMsj = ({ msj, owner, id }) => {
               {' '}
               <Col flex="auto" className="chatMsjCnt">
                 <Space direction="vertical" align="start" className={'chatMsj'}>
-                  <p>{owner}</p>
+                  <p style={{ color: '#7192a1' }}>{owner}</p>
                   <Markdown msj={msj} />
                 </Space>
               </Col>

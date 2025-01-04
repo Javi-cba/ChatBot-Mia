@@ -16,16 +16,15 @@
 
 .navbar-title {
   margin: 0.6rem 0rem;
-  color: #ffffff !important;
+  color: #526872 !important;
   font-size: 1.5rem !important;
   font-weight: bold !important;
   overflow: hidden;
   border-right: 2px solid #313f46; /* Simula el cursor de escritura */
   white-space: nowrap;
   width: 0; /* Inicia el ancho en 0 */
-  animation: typing 3s steps(30) 1s forwards,
+  animation: typing 2s steps(20) 1s forwards,
     blink-caret 0.75s step-end infinite; /* Animaciones */
-  text-align: center;
 }
 
 @keyframes typing {

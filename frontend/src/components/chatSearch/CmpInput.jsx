@@ -13,7 +13,7 @@ const CmpInput = () => {
   const { setLoadingIA } = useContext(LoadContext);
 
   const { uploadImage } = useImg();
-  const { dispatch } = usechat();
+  const { dispatch, chat } = usechat();
   const [inputValue, setInputValue] = useState('');
 
   const handleSend = async value => {
@@ -31,7 +31,7 @@ const CmpInput = () => {
       dispatch({ type: 'ADD_CHAT', payload: messageIA });
 
       // Realiza la llamada al back
-      const respIA = await getChat(value, imgURL);
+      const respIA = await getChat(value, imgURL, chat.msjs);
 
       // Actualiza el mensaje temporal con la respuesta real de IA
       messageIA.content = respIA; // Actualiza el contenido del mensaje una vez que el back responde

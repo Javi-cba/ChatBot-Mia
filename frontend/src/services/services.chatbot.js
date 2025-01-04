@@ -2,16 +2,21 @@ import axios from 'axios';
 const URL = import.meta.env.VITE_APP_URL;
 
 export const getBackend = async () => {
-  axios.get(`${URL}/`).then((response) => {
+  axios.get(`${URL}/`).then(response => {
     console.log(response);
   });
 };
-export const getChat = async (prompt, imgURL) => {
+export const getChat = async (prompt, imgURL, historyMsj) => {
+  console.log(historyMsj);
   if (!imgURL) {
     try {
-      const response = await axios.post(`${URL}/chat/prompt-text`, null, {
-        params: { prompt },
-      });
+      const response = await axios.post(
+        `${URL}/chat/prompt-text`,
+        { historyMsj },
+        {
+          params: { prompt },
+        }
+      );
       console.log(response.data.response);
       return response.data.response;
     } catch (error) {
@@ -20,9 +25,13 @@ export const getChat = async (prompt, imgURL) => {
     }
   } else {
     try {
-      const response = await axios.post(`${URL}/chat/prompt-img`, null, {
-        params: { prompt, imgURL },
-      });
+      const response = await axios.post(
+        `${URL}/chat/prompt-img`,
+        { historyMsj },
+        {
+          params: { prompt, imgURL },
+        }
+      );
       console.log(response.data.response);
       return response.data.response;
     } catch (error) {

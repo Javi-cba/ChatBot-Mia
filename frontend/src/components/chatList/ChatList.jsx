@@ -3,7 +3,6 @@ import { usechat } from '../../context/chatContext';
 import CmpMsj from './CmpMsj';
 const ChatList = () => {
   const { chat } = usechat();
-  console.log(chat.msjs);
 
   return (
     <Flex

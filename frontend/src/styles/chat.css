@@ -6,8 +6,8 @@
 }
 
 .chatContainer {
-  flex: 1;
-  width: 100%;
+  flex-grow: 1;
+  overflow-y: auto;
   padding: 0.5rem;
   text-align: center;
 }
@@ -91,8 +91,9 @@
   overflow: hidden;
   white-space: nowrap;
   width: 0; /* Inicia el ancho en 0 */
-  animation: typing 3s steps(30) 1s forwards,
+  animation: typing 2s steps(30) 1s forwards,
     blink-caret 0.75s step-end infinite; /* Animaciones */
+  color: #8ba5b1 !important;
 }
 
 @keyframes typing {
@@ -102,4 +103,21 @@
   100% {
     width: 100%;
   }
+}
+body::-webkit-scrollbar {
+  width: 12px !important;
+}
+
+body::-webkit-scrollbar-track {
+  background: #f2f3f3 !important;
+  border-radius: 6px !important;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #888 !important;
+  border-radius: 6px !important;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #555 !important;
 }
