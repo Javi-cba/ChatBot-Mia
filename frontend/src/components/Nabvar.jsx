@@ -9,7 +9,7 @@ const { Title } = Typography;
 
 const Navbar = () => {
   const { handleRemoveImage } = useImg();
-  const { dispatch } = usechat();
+  const { dispatch, chat } = usechat();
   return (
     <Flex className="navbar" justify="space-between">
       <Space size="middle" align="center" justify="center">
@@ -22,14 +22,18 @@ const Navbar = () => {
           MIA Chatbot
         </Title>
       </Space>
-      <Button
-        icon={<DeleteOutlined style={{ color: 'white' }} />}
-        style={{ backgroundColor: '#263339', borderColor: '#1D425D' }}
-        onClick={() => {
-          handleRemoveImage();
-          dispatch({ type: 'CLEAR_CHAT' });
-        }}
-      ></Button>{' '}
+      <div>
+        {chat.msjs.length > 0 && (
+          <Button
+            icon={<DeleteOutlined style={{ color: 'white' }} />}
+            style={{ backgroundColor: '#263339', borderColor: '#1D425D' }}
+            onClick={() => {
+              handleRemoveImage();
+              dispatch({ type: 'CLEAR_CHAT' });
+            }}
+          ></Button>
+        )}
+      </div>
     </Flex>
   );
 };

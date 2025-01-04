@@ -48,8 +48,10 @@ export const ImgProvider = ({ children }) => {
   };
   // Función para eliminar la imagen
   const handleRemoveImage = () => {
-    setFile(null); // Limpiar el archivo
-    message.info('Imagen eliminada');
+    if (file) {
+      setFile(null); // Limpia el archivo
+      message.info('Imagen eliminada');
+    }
   };
   const getFile = () => {
     return file;
