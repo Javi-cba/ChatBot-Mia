@@ -6,7 +6,6 @@ import { getBackend } from '../services/services.chatbot';
 
 function Home() {
   getBackend();
-  getBackend();
   return (
     <div className="chatbotContainer">
       <Navbar />
