@@ -1,6 +1,4 @@
 const { GoogleGenerativeAI } = require('@google/generative-ai');
-const fetch = require('node-fetch'); // Importing fetch to handle image download
-const fs = require('fs'); // To handle saving the file
 const APIKEY = process.env.APIKEY;
 const genAI = new GoogleGenerativeAI(APIKEY);
 const context =
@@ -11,7 +9,7 @@ const model = genAI.getGenerativeModel({
   systemInstruction: context,
 });
 
-const getChat = async (prompt, historyMessages) => {
+const Chat = async (prompt, historyMessages) => {
   try {
     const result = await model.generateContent(
       `${prompt}\n${JSON.stringify(historyMessages, null, 2)}`
@@ -30,21 +28,13 @@ const getChat = async (prompt, historyMessages) => {
   }
 };
 
-const getChatImg = async (prompt, imgURL, historyMessages) => {
+const ChatImg = async (prompt, imgURL, historyMessages) => {
   try {
-    const response = await fetch(imgURL);
-    if (!response.ok) {
-      throw new Error('Error al descargar la imágen');
-    }
-
-    const buffer = await response.buffer();
-    const base64Image = buffer.toString('base64');
-
-    const imageData = `data:image/jpeg;base64,${base64Image}`;
+    // Genera el contenido con el modelo
 
     const result = await model.generateContent([
       `${prompt}\n${JSON.stringify(historyMessages, null, 2)}`,
-      imageData,
+      imgURL,
     ]);
     console.log(result.response.text());
 
@@ -54,9 +44,9 @@ const getChatImg = async (prompt, imgURL, historyMessages) => {
 
     return dataIA;
   } catch (error) {
-    console.log(error);
-    throw new Error('Error al procesar la solicitud: ' + error);
+    console.error('Error en getChatImg:', error.message);
+    throw new Error('Error al procesar la solicitud: ' + error.message);
   }
 };
 
-module.exports = { getChat, getChatImg };
+module.exports = { Chat, ChatImg };
