@@ -10,8 +10,17 @@
   flex-grow: 1;
   overflow-y: auto;
   padding: 0.5rem;
-  height: calc(89vh - 4.5rem);
+  height: 100vh;
   text-align: center;
+}
+@media screen and (max-width: 600px) {
+  .chatbotContainer {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0.5rem;
+    height: 90vh;
+    text-align: center;
+  }
 }
 
 /* Search Container (fijo al final) */
@@ -91,6 +100,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 600px) {
+  .msjInitContainer {
+    height: 67vh;
+  }
 }
 
 .msjInit {
