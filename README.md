@@ -6,12 +6,7 @@ La aplicación web ofrece las siguientes funcionalidades:
 - **Reconocimiento de imágenes**: El chatbot puede interpretar imágenes enviadas por el usuario.
 - **Respuestas rápidas**: El chatbot responde preguntas frecuentes de manera automática.
 - **Respuestas en Markdown**: El chatbot responde en formato con Markdown, generando tablas, listas, enlaces, etc.
-
-## Futuras Funcionalidades
-
-- **Dictado de voz**: Permitirá a los usuarios interactuar mediante comandos de voz.
-- **Recordar conversaciones recientes**: Permitirá tener un contexto sobre lo que se acaba de hablar.
-- **Historial de conversaciones**: Permitirá tener un historial en BD sobre las conversaciones.
+- **Recordar conversaciones recientes**: Permite tener un contexto sobre lo que se acaba de hablar.
 
 ## Instalación
 
