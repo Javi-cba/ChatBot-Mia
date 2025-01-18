@@ -39,7 +39,7 @@ Sigue estos pasos para ejecutar el proyecto en tu máquina local:
    npm start
    ```
    ```bash
-   npm rundev
+   npm run dev
    ```
 
 ![image](https://github.com/user-attachments/assets/12d2acbf-0f59-4caf-9526-82e768f55ff3)
